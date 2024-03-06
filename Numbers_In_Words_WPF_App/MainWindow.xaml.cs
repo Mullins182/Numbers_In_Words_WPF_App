@@ -24,5 +24,21 @@ namespace Numbers_In_Words_WPF_App
         {
             InitializeComponent();
         }
+
+
+        private void number_input_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void number_input_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            number_input.CaretBrush = Brushes.Red;
+        }
+
+        private void number_input_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            numberInWords.Content = number_input.Text;
+        }
     }
 }
