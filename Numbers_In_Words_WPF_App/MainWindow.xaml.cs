@@ -26,19 +26,19 @@ namespace Numbers_In_Words_WPF_App
         }
 
 
-        private void number_input_GotFocus(object sender, RoutedEventArgs e)
+        private void Number_input_GotFocus(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void number_input_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void Number_input_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            number_input.CaretBrush = Brushes.Red;
+            Number_input.CaretBrush = Brushes.Red;
         }
 
-        private void number_input_TextChanged(object sender, TextChangedEventArgs e)
+        private void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
-            numberInWords.Content = number_input.Text;
+            NumberInWords.Content = Number_input.Text;
         }
     }
 }

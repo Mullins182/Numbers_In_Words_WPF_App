@@ -18,12 +18,12 @@
             <RowDefinition MinHeight="80" MaxHeight="150"/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="number_input" Width="500" Height="50" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Background="#000000" Foreground="DarkGoldenrod"
+        <TextBox x:Name="Number_input" Width="500" Height="50" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Background="#000000" Foreground="DarkGoldenrod"
                  BorderThickness="1.7" BorderBrush="Goldenrod" FontFamily="Arial Rounded MT Bold" FontSize="25" IsEnabled="True" TextAlignment="Justify"
-                 Padding="0,8,0,0" Focusable="True" GotFocus="number_input_GotFocus" GotKeyboardFocus="number_input_GotKeyboardFocus"
-                 TextChanged="number_input_TextChanged"/>
+                 Padding="0,8,0,0" Focusable="True" GotFocus="Number_input_GotFocus" GotKeyboardFocus="Number_input_GotKeyboardFocus"
+                 TextChanged="Number_input_TextChanged"/>
 
-        <Label x:Name="numberInWords" Height="65" Width="1000" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Foreground="Green"
+        <Label x:Name="NumberInWords" Height="65" Width="1000" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Foreground="Green"
                BorderThickness="1.20" BorderBrush="YellowGreen"/>
 
     </Grid>
