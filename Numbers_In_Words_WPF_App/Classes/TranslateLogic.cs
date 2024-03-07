@@ -21,9 +21,11 @@ namespace Numbers_In_Words_WPF_App.Classes
 
         // Constructors END !!
 
-        public void CheckInput()
+        public void CheckInput(string input)
         {
-            if (input == null) 
+            this.input = input;
+
+            if (this.input == null) 
             {
                 MessageBox.Show("Da ist was schief gelaufen !");
             }

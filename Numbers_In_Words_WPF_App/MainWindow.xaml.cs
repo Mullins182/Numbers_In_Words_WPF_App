@@ -21,6 +21,9 @@ namespace Numbers_In_Words_WPF_App
     /// </summary>
     public partial class MainWindow : Window
     {
+        TranslateLogic numbers_to_words = new TranslateLogic();
+
+        public static string input;
 
         public MainWindow()
         {
@@ -40,11 +43,11 @@ namespace Numbers_In_Words_WPF_App
 
         private void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TranslateLogic numbers_to_words = new TranslateLogic(Number_input.Text);
+            input += Number_input.Text;
 
-            NumberInWords.Content = Number_input.Text;
+            NumberInWords.Content = numbers_to_words.input;
 
-            numbers_to_words.CheckInput();
+            numbers_to_words.CheckInput(input);
         }
     }
 }
