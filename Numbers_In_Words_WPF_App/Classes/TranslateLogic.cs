@@ -143,10 +143,18 @@ namespace Numbers_In_Words_WPF_App.Classes
                     }
                     else
                     {
+                        
                         output = words[(int)input.ElementAt(0) - 48] + words[29] + words[(int)input.ElementAt(1) - 48] + words[28];
                     }
 
-                    Output1to99(input);
+                    if(input.ElementAt(2) == '0' && input.ElementAt(3) == '0')
+                    {
+
+                    }
+                    else
+                    {
+                        Output1to99(input);
+                    }
                 }
             }
             else
