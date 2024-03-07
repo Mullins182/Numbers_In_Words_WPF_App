@@ -120,57 +120,13 @@ namespace Numbers_In_Words_WPF_App.Classes
             }
             else if (input.Count() == 3)
             {
-                if (input.ElementAt(1) == '1')
-                {
-                    if (input.ElementAt(2) == '0')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 39];
-                    }
-                    else if (input.ElementAt(2) == '1')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 38];
-                    }
-                    else if (input.ElementAt(2) == '2')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 37];
-                    }
-                    else if (input.ElementAt(2) == '3')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 36];
-                    }
-                    else if (input.ElementAt(2) == '4')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 35];
-                    }
-                    else if (input.ElementAt(2) == '5')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 34];
-                    }
-                    else if (input.ElementAt(2) == '6')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 33];
-                    }
-                    else if (input.ElementAt(2) == '7')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 32];
-                    }
-                    else if (input.ElementAt(2) == '8')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 31];
-                    }
-                    else if (input.ElementAt(2) == '9')
-                    {
-                        output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 30];
-                    }
-                }
-                else if (input.ElementAt(2) == '0')
-                {
-                    output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 30];
-                }
-                else
-                {
-                    output = words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 30] + words[Convert.ToInt32(input.ElementAt(2)) - 48];
-                }
+                output = words[Convert.ToInt32(input.ElementAt(0)) - 48];
+
+                OutputHundred(input);
+            }
+            else if (input.Count() == 4)
+            {
+
             }
             else
             {
@@ -178,6 +134,61 @@ namespace Numbers_In_Words_WPF_App.Classes
             }
 
             return output;
+        }
+
+        private void OutputHundred(string input)
+        {
+            if (input.ElementAt(1) == '1')
+            {
+                if (input.ElementAt(2) == '0')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 39];
+                }
+                else if (input.ElementAt(2) == '1')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 38];
+                }
+                else if (input.ElementAt(2) == '2')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 37];
+                }
+                else if (input.ElementAt(2) == '3')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 36];
+                }
+                else if (input.ElementAt(2) == '4')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 35];
+                }
+                else if (input.ElementAt(2) == '5')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 34];
+                }
+                else if (input.ElementAt(2) == '6')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 33];
+                }
+                else if (input.ElementAt(2) == '7')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 32];
+                }
+                else if (input.ElementAt(2) == '8')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 31];
+                }
+                else if (input.ElementAt(2) == '9')
+                {
+                    output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 30];
+                }
+            }
+            else if (input.ElementAt(2) == '0')
+            {
+                output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 30];
+            }
+            else
+            {
+                output += words[Convert.ToInt32(input.ElementAt(0)) - 21] + words[Convert.ToInt32(input.ElementAt(1)) - 30] + words[Convert.ToInt32(input.ElementAt(2)) - 48];
+            }
         }
     }
 }
