@@ -23,7 +23,7 @@ namespace Numbers_In_Words_WPF_App
     {
         TranslateLogic numbers_to_words = new TranslateLogic();
 
-        public uint input;
+        public string input;
 
         public MainWindow()
         {
@@ -44,11 +44,11 @@ namespace Numbers_In_Words_WPF_App
         {
             if(Number_input.Text == "")
             {
-
+                NumberInWords.Content = "Type Smth ! :)";
             }
             else
             {
-                input = Convert.ToUInt32(Number_input.Text);
+                input = Number_input.Text;
 
                 NumberInWords.Content = numbers_to_words.CheckInput(input);
             }
