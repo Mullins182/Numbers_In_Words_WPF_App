@@ -9,32 +9,26 @@ namespace Numbers_In_Words_WPF_App.Classes
 {
     public class TranslateLogic
     {
-        public string input;
+        public string output;
 
         // Constructors Start
         public TranslateLogic() { }
 
-        public TranslateLogic(string input)
-        {
-            this.input = input;
-        }
-
         // Constructors END !!
 
-        public void CheckInput(string input)
+        public string CheckInput(uint input)
         {
-            this.input = input;
 
-            if (this.input == null) 
+            if(input == 1)
             {
-                MessageBox.Show("Da ist was schief gelaufen !");
+                output = "Eins";
             }
+            else 
+            {
+                output = "Bitte etwas eingeben !";
+            }
+
+            return output;
         }
-
     }
-
-
-
-
-
 }

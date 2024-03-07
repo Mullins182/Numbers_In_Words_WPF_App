@@ -23,13 +23,12 @@ namespace Numbers_In_Words_WPF_App
     {
         TranslateLogic numbers_to_words = new TranslateLogic();
 
-        public static string input;
+        public uint input;
 
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
-
 
         private void Number_input_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -43,11 +42,16 @@ namespace Numbers_In_Words_WPF_App
 
         private void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
-            input += Number_input.Text;
+            if(Number_input.Text == "")
+            {
 
-            NumberInWords.Content = numbers_to_words.input;
+            }
+            else
+            {
+                input = Convert.ToUInt32(Number_input.Text);
 
-            numbers_to_words.CheckInput(input);
+                NumberInWords.Content = numbers_to_words.CheckInput(input);
+            }
         }
     }
 }
