@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Numbers_In_Words_WPF_App.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace Numbers_In_Words_WPF_App
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
 
@@ -38,7 +40,11 @@ namespace Numbers_In_Words_WPF_App
 
         private void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TranslateLogic numbers_to_words = new TranslateLogic(Number_input.Text);
+
             NumberInWords.Content = Number_input.Text;
+
+            numbers_to_words.CheckInput();
         }
     }
 }
