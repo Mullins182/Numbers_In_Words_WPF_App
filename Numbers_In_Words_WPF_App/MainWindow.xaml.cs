@@ -40,8 +40,10 @@ namespace Numbers_In_Words_WPF_App
             Number_input.CaretBrush = Brushes.Red;
         }
 
-        private void Number_input_TextChanged(object sender, TextChangedEventArgs e)
+        private async void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
+            await Task.Delay(1844);
+
             if(Number_input.Text == "")
             {
                 NumberInWords.Content = "Type Smth ! :)";
