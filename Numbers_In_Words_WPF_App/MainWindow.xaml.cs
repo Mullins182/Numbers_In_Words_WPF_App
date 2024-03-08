@@ -25,6 +25,8 @@ namespace Numbers_In_Words_WPF_App
 
         public string input;
 
+        public bool taskActive = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,48 +46,65 @@ namespace Numbers_In_Words_WPF_App
 
         private async void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Number_input.Foreground = Brushes.DarkGoldenrod;
-
-            bool validValue = false;
-
-            await Task.Delay(1655);
-
-            if(Number_input.Text == "exit")
+            if(taskActive)
             {
-                NumberInWords.Content = "CIAO BELLA :D";
-                await Task.Delay(2111);
-                this.Close();
-            }
 
-            foreach (var item in Number_input.Text)
-            {
-                if ((int)item < 48 || (int)item > 57)
-                    validValue = false;
-                else
-                    validValue = true;
-            }
-
-            if (!validValue)
-            {
-                NumberInWords.Content = "ERROR ! TYPE IN NUMBERS PLS :P";
-                Number_input.SelectAll();
-                Number_input.Foreground = Brushes.Red;
             }
             else
             {
-                Number_input.SelectAll();
-                Number_input.Foreground = Brushes.Red;
+                taskActive = true;
 
-                if(Number_input.Text == "")
+                Number_input.Foreground = Brushes.DarkGoldenrod;
+
+                bool validValue = false;
+
+                await Task.Delay(1655);
+
+                if (Number_input.Text == "exit")
                 {
-                    NumberInWords.Content = "Type Smth ! :)";
+                    NumberInWords.Content = "CIAO BELLA :D";
+                    await Task.Delay(2111);
+                    this.Close();
+                }
+
+                foreach (var item in Number_input.Text)
+                {
+                    if ((int)item < 48 || (int)item > 57)
+                        validValue = false;
+                    else
+                        validValue = true;
+                }
+
+                if (!validValue)
+                {
+                    NumberInWords.Content = "ERROR ! TYPE IN NUMBERS PLS :P";
+                    Number_input.SelectAll();
+                    Number_input.Foreground = Brushes.Red;
                 }
                 else
                 {
-                    input = Number_input.Text;
+                    Number_input.SelectAll();
+                    Number_input.Foreground = Brushes.Red;
 
-                    NumberInWords.Content = numbers_to_words.CheckInput(input);
+                    if (Number_input.Text == "")
+                    {
+                        NumberInWords.Content = "Type Smth ! :)";
+                    }
+                    else
+                    {
+                        input = Number_input.Text;
+
+                        NumberInWords.Content = numbers_to_words.CheckInput(input);
+                    }
                 }
+
+                Number_input.IsEnabled  = false;
+
+                await Task.Delay(2222);
+
+                Number_input.IsEnabled  = true;
+                taskActive              = false;
+                Number_input.Focus();
             }
         }
         private void quit_Click(object sender, RoutedEventArgs e)
