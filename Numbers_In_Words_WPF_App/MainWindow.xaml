@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Numbers_In_Words_WPF_App"
         mc:Ignorable="d"
-        Title="NUMBERS IN WORDS | By Mullins182" Height="400" Width="1500" WindowStartupLocation="CenterScreen" Background="#200000" 
+        Title="NUMBERS IN WORDS | By Mullins182" Height="400" Width="1500" WindowStartupLocation="CenterScreen" Background="#000000" 
         Icon="/Icons/books.ico" MinWidth="1030" MinHeight="215">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -17,6 +17,12 @@
             <RowDefinition MinHeight="100"/>
             <RowDefinition MinHeight="80" MaxHeight="150"/>
         </Grid.RowDefinitions>
+
+        <Label Content="| Number in Words Output |" Height="50" Width="600" Foreground="DarkGoldenrod" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+               VerticalAlignment="Top" FontFamily="Bookman Old Style" FontSize="28" HorizontalContentAlignment="Center" Margin="30"/>
+
+        <Label Content="| Please type in a Number between Zero and 9.999 |" Height="50" Width="1300" Foreground="DarkGoldenrod" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+               VerticalAlignment="Top" FontFamily="Bookman Old Style" FontSize="28" HorizontalContentAlignment="Center" Margin="0"/>
 
         <TextBox x:Name="Number_input" Width="500" Height="50" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Background="#000000" Foreground="DarkGoldenrod"
                  BorderThickness="1.7" BorderBrush="DarkGoldenrod" FontFamily="Arial Rounded MT Bold" FontSize="25" IsEnabled="True" TextAlignment="Justify"
