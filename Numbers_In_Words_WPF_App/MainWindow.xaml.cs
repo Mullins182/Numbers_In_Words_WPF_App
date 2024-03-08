@@ -28,6 +28,8 @@ namespace Numbers_In_Words_WPF_App
         public MainWindow()
         {
             InitializeComponent();
+
+            Number_input.Focus();
         }
 
         private void Number_input_GotFocus(object sender, RoutedEventArgs e)
