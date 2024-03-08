@@ -6,7 +6,30 @@
         xmlns:local="clr-namespace:Numbers_In_Words_WPF_App"
         mc:Ignorable="d"
         Title="NUMBERS IN WORDS | By Mullins182" Height="400" Width="1500" WindowStartupLocation="CenterScreen" Background="#000000" 
-        Icon="/Icons/books.ico" MinWidth="1030" MinHeight="215">
+        Icon="/Icons/books.ico" MinWidth="1030" MinHeight="215" WindowState="Normal">
+    <!--Control Template Override für Buttons um Highlighting bei Mouseover zu verhindern !-->
+    <Window.Resources>
+        <ControlTemplate x:Key="NoMouseOverButtonTemplate"
+                 TargetType="Button">
+            <Border Background="{TemplateBinding Background}"
+          BorderBrush="{TemplateBinding BorderBrush}"
+          BorderThickness="{TemplateBinding BorderThickness}">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"  
+             Value="False">
+                    <Setter Property="Background"  
+              Value="{x:Static SystemColors.ControlLightBrush}" />
+                    <Setter Property="Foreground"  
+              Value="{x:Static SystemColors.GrayTextBrush}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <!--Control Templates Override ENDE !-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="500" MaxWidth="750"/>
@@ -26,11 +49,15 @@
 
         <TextBox x:Name="Number_input" Width="500" Height="50" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Background="#000000" Foreground="DarkGoldenrod"
                  BorderThickness="1.7" BorderBrush="DarkGoldenrod" FontFamily="Arial Rounded MT Bold" FontSize="25" IsEnabled="True" TextAlignment="Justify"
-                 Padding="0,8,0,0" Focusable="True" GotFocus="Number_input_GotFocus" GotKeyboardFocus="Number_input_GotKeyboardFocus"
-                 TextChanged="Number_input_TextChanged"/>
+                 Padding="0,10,0,0" Focusable="True" GotFocus="Number_input_GotFocus" GotKeyboardFocus="Number_input_GotKeyboardFocus"
+                 TextChanged="Number_input_TextChanged" SelectionBrush="Transparent" SelectionOpacity="0.33"/>
 
         <Label x:Name="NumberInWords" Height="65" Width="1000" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Foreground="Goldenrod"
                BorderThickness="1.20" BorderBrush="DarkGoldenrod" Background="#000000"/>
+
+        <Button x:Name="quit" Width="35" Height="35" Grid.Column="1" Grid.Row="0" Background="Transparent" Foreground="#9F0000" HorizontalAlignment="Right"
+                VerticalAlignment="Top" Margin="0,8,6,0" FontFamily="Arial Black" FontSize="30" Content="X" ClickMode="Release" Click="quit_Click" 
+                BorderBrush="#9F0000" BorderThickness="1.5" Template="{StaticResource NoMouseOverButtonTemplate}"/>
 
     </Grid>
 </Window>

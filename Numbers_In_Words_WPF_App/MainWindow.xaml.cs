@@ -42,18 +42,51 @@ namespace Numbers_In_Words_WPF_App
 
         private async void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
-            await Task.Delay(1844);
+            Number_input.Foreground = Brushes.DarkGoldenrod;
 
-            if(Number_input.Text == "")
+            bool validValue = false;
+
+            await Task.Delay(1655);
+
+            if(Number_input.Text == "exit")
             {
-                NumberInWords.Content = "Type Smth ! :)";
+                this.Close();
+            }
+
+            foreach (var item in Number_input.Text)
+            {
+                if ((int)item < 48 || (int)item > 57)
+                    validValue = false;
+                else
+                    validValue = true;
+            }
+
+            if (!validValue)
+            {
+                NumberInWords.Content = "INVALID VALUE !";
+                Number_input.SelectAll();
+                Number_input.Foreground = Brushes.Red;
             }
             else
             {
-                input = Number_input.Text;
+                Number_input.SelectAll();
+                Number_input.Foreground = Brushes.Red;
 
-                NumberInWords.Content = numbers_to_words.CheckInput(input);
+                if(Number_input.Text == "")
+                {
+                    NumberInWords.Content = "Type Smth ! :)";
+                }
+                else
+                {
+                    input = Number_input.Text;
+
+                    NumberInWords.Content = numbers_to_words.CheckInput(input);
+                }
             }
+        }
+        private void quit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
