@@ -50,6 +50,8 @@ namespace Numbers_In_Words_WPF_App
 
             if(Number_input.Text == "exit")
             {
+                NumberInWords.Content = "CIAO BELLA :D";
+                await Task.Delay(2111);
                 this.Close();
             }
 
@@ -63,7 +65,7 @@ namespace Numbers_In_Words_WPF_App
 
             if (!validValue)
             {
-                NumberInWords.Content = "INVALID VALUE !";
+                NumberInWords.Content = "ERROR ! TYPE IN NUMBERS PLS :P";
                 Number_input.SelectAll();
                 Number_input.Foreground = Brushes.Red;
             }

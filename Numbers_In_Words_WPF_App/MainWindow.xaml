@@ -53,7 +53,7 @@
                  TextChanged="Number_input_TextChanged" SelectionBrush="Transparent" SelectionOpacity="0.33"/>
 
         <Label x:Name="NumberInWords" Height="65" Width="1000" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="30" Foreground="Goldenrod"
-               BorderThickness="1.20" BorderBrush="DarkGoldenrod" Background="#000000"/>
+               BorderThickness="1.20" BorderBrush="DarkGoldenrod" Background="#000000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
         <Button x:Name="quit" Width="35" Height="35" Grid.Column="1" Grid.Row="0" Background="Transparent" Foreground="#9F0000" HorizontalAlignment="Right"
                 VerticalAlignment="Top" Margin="0,8,6,0" FontFamily="Arial Black" FontSize="30" Content="X" ClickMode="Release" Click="quit_Click" 
