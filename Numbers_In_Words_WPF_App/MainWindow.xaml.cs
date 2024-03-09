@@ -52,7 +52,7 @@ namespace Numbers_In_Words_WPF_App
 
             if(Number_input.Text.Length > 18)                              // Integer length of 18 digits is Trillion
             {
-                Number_input.Text = Number_input.Text.Remove(24, 1);     // removes the last char typed into textbox
+                Number_input.Text = Number_input.Text.Remove(18, 1);     // removes the last char typed into textbox
                 Number_input.Select(Number_input.Text.Length, 0);       // Sets the Cursor to end of text after remove method was executed
             }
             else
