@@ -27,6 +27,9 @@ namespace Numbers_In_Words_WPF_App
 
         public bool taskActive = false;
 
+        public int inputDelayStdValue   = 165;
+        public int inputDelay           = 165;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -46,68 +49,83 @@ namespace Numbers_In_Words_WPF_App
 
         private async void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(taskActive)
-            {
 
+            if(Number_input.Text.Length > 24)
+            {
+                Number_input.Text = Number_input.Text.Remove(24, 1);     // removes the last char typed into textbox
+                Number_input.Select(Number_input.Text.Length, 0);       // Sets the Cursor to end of text after remove method was executed
             }
             else
             {
-                taskActive = true;
-
-                Number_input.Foreground = Brushes.DarkGoldenrod;
-
-                bool validValue = false;
-
-                await Task.Delay(1655);
-
-                if (Number_input.Text == "exit")
+                if (taskActive)
                 {
-                    NumberInWords.Content = "CIAO BELLA :D";
-                    await Task.Delay(2111);
-                    this.Close();
-                }
-
-                foreach (var item in Number_input.Text)
-                {
-                    if ((int)item < 48 || (int)item > 57)
-                        validValue = false;
-                    else
-                        validValue = true;
-                }
-
-                if (!validValue)
-                {
-                    NumberInWords.Content = "ERROR ! TYPE IN NUMBERS PLS :P";
-                    Number_input.SelectAll();
-                    Number_input.Foreground = Brushes.Red;
+                    inputDelay = inputDelayStdValue;
                 }
                 else
                 {
-                    Number_input.SelectAll();
-                    Number_input.Foreground = Brushes.Red;
+                    bool validValue = false;
+                    taskActive      = true;
 
-                    if (Number_input.Text == "")
+                    Number_input.Foreground = Brushes.DarkGoldenrod;
+
+                    while (inputDelay > 0)
                     {
-                        NumberInWords.Content = "Type Smth ! :)";
+                        await Task.Delay(1);
+                        inputDelay--;
+                    }
+
+                    inputDelay = inputDelayStdValue;
+
+                    if (Number_input.Text == "exit")
+                    {
+                        NumberInWords.Content = "CIAO BELLA :D";
+                        await Task.Delay(2111);
+                        this.Close();
+                    }
+
+                    foreach (var item in Number_input.Text)
+                    {
+                        if ((int)item < 48 || (int)item > 57)
+                            validValue = false;
+                        else
+                            validValue = true;
+                    }
+
+                    if (!validValue)
+                    {
+                        NumberInWords.Content = "ERROR ! TYPE IN NUMBERS PLS :P";
+                        Number_input.SelectAll();
+                        Number_input.Foreground = Brushes.Red;
                     }
                     else
                     {
-                        input = Number_input.Text;
+                        Number_input.SelectAll();
+                        Number_input.Foreground = Brushes.Red;
 
-                        NumberInWords.Content = numbers_to_words.CheckInput(input);
+                        if (Number_input.Text == "")
+                        {
+                            NumberInWords.Content = "Type Smth ! :)";
+                        }
+                        else
+                        {
+                            input = Number_input.Text;
+
+                            NumberInWords.Content = numbers_to_words.CheckInput(input);
+                        }
                     }
+
+                    Number_input.Focusable = false;
+
+                    await Task.Delay(2222);
+
+                    Number_input.Focusable = true;
+                    taskActive = false;
+                    Number_input.Focus();
                 }
-
-                Number_input.IsEnabled  = false;
-
-                await Task.Delay(2222);
-
-                Number_input.IsEnabled  = true;
-                taskActive              = false;
-                Number_input.Focus();
             }
+
         }
-        private void quit_Click(object sender, RoutedEventArgs e)
+        private void Quit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
