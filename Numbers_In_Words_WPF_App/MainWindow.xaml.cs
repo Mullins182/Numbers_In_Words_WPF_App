@@ -50,7 +50,7 @@ namespace Numbers_In_Words_WPF_App
         private async void Number_input_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            if(Number_input.Text.Length > 24)
+            if(Number_input.Text.Length > 18)                              // Integer length of 18 digits is Trillion
             {
                 Number_input.Text = Number_input.Text.Remove(24, 1);     // removes the last char typed into textbox
                 Number_input.Select(Number_input.Text.Length, 0);       // Sets the Cursor to end of text after remove method was executed
@@ -79,7 +79,7 @@ namespace Numbers_In_Words_WPF_App
                     if (Number_input.Text == "exit")
                     {
                         NumberInWords.Content = "CIAO BELLA :D";
-                        await Task.Delay(2111);
+                        await Task.Delay(3111);
                         this.Close();
                     }
 

@@ -142,12 +142,30 @@ namespace Numbers_In_Words_WPF_App.Classes
                         output = words[(int)input.ElementAt(0) - 48] + words[29];
                     }
                     else
-                    {
-                        
+                    {                        
                         output = words[(int)input.ElementAt(0) - 48] + words[29] + words[(int)input.ElementAt(1) - 48] + words[28];
                     }
 
                     if(input.ElementAt(2) == '0' && input.ElementAt(3) == '0')
+                    {
+
+                    }
+                    else
+                    {
+                        Output1to99(input);
+                    }
+                }
+            }
+            else if (input.Count() == 5)            // Tenthousends ( IN WORK !! )
+            {
+                if (input.ElementAt(1) == '0' && input.ElementAt(2) == '0' && input.ElementAt(3) == '0' && input.ElementAt(4) == '0')
+                {
+                    output = words[30];
+                }
+                else
+                {
+
+                    if (input.ElementAt(1) != '0')
                     {
 
                     }
@@ -344,6 +362,96 @@ namespace Numbers_In_Words_WPF_App.Classes
                     else
                     {
                         output += words[(int)input.ElementAt(2) - 30] + words[(int)input.ElementAt(3) - 48];
+                    }
+                }
+            }
+            else if (input.Count() == 5)
+            {
+                if (input.ElementAt(3) == '0' && input.ElementAt(4) == '1')
+                {
+                    output += words[1];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '2')
+                {
+                    output += words[2];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '3')
+                {
+                    output += words[3];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '4')
+                {
+                    output += words[4];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '5')
+                {
+                    output += words[5];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '6')
+                {
+                    output += words[6];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '7')
+                {
+                    output += words[7];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '8')
+                {
+                    output += words[8];
+                }
+                else if (input.ElementAt(3) == '0' && input.ElementAt(4) == '9')
+                {
+                    output += words[9];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '0')
+                {
+                    output += words[10];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '1')
+                {
+                    output += words[11];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '2')
+                {
+                    output += words[12];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '3')
+                {
+                    output += words[13];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '4')
+                {
+                    output += words[14];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '5')
+                {
+                    output += words[15];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '6')
+                {
+                    output += words[16];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '7')
+                {
+                    output += words[17];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '8')
+                {
+                    output += words[18];
+                }
+                else if (input.ElementAt(3) == '1' && input.ElementAt(4) == '9')
+                {
+                    output += words[19];
+                }
+                else
+                {
+                    if (input.ElementAt(4) == '0')
+                    {
+                        output += words[(int)input.ElementAt(2) - 30];
+                    }
+                    else
+                    {
+                        output += words[(int)input.ElementAt(3) - 30] + words[(int)input.ElementAt(4) - 48];
                     }
                 }
             }
